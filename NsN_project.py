@@ -19,8 +19,13 @@ def new_entry():
 			print 'You already requested the maximum.'
 			show_requesters()
 	else:
-		requesters[new_name] = new_request
-		show_requesters()
+		if new_request<=MAXIMUM_REQUESTS:
+			requesters[new_name] = new_request
+			show_requesters()
+		else: 
+			print 'You can only have {0} items'.format(MAXIMUM_REQUESTS)
+			requesters[new_name] = MAXIMUM_REQUESTS
+			show_requesters()
 			
 
 new_entry()
